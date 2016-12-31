@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://i.imgur.com/xKxzCUN.png">
 <meta property="og:image" content="http://i.imgur.com/EwCHQaS.png">
 <meta property="og:image" content="http://i.imgur.com/0aANYrF.png">
-<meta property="og:updated_time" content="2016-12-31T09:49:33.003Z">
+<meta property="og:updated_time" content="2016-12-31T18:35:03.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬取微博">
 <meta name="twitter:description" content="渣浪微博算是用的比较多了，但是一条一条的翻看太过于麻烦，无奈爬取之。">
@@ -214,6 +214,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -362,19 +372,14 @@
 <li><strong>环境：win7+python2.7；</strong></li>
 <li>python模块：request；bs4；beautifulsoup4；lxml；</li>
 <li><strong>chrome浏览器</strong></li>
-<li>实现过程：</li>
+<li>实现过程：<h2 id="获取cookie："><a href="#获取cookie：" class="headerlink" title="获取cookie："></a><strong>获取cookie</strong>：</h2>打开chrome然后Ctrl+Shift+I调出开发者工具，点击tooggle device toolbar(Ctrl+shift+M)然后在Responsive选择合适的设备，<img src="http://i.imgur.com/D0MMgUl.png" alt="">我这里选择的是nexus5X，接下来打开weibo.com这时候应该看到的就是手机端网页的微博登录页面。<img src="http://i.imgur.com/xKxzCUN.png" alt="">在开发者工具中选中Network–Preserve log，然后登录微博。在开发者工具中找到有关m.weibo.cn的复制自己的cookie<img src="http://i.imgur.com/EwCHQaS.png" alt=""><h2 id="获取你想爬取微博的user-id："><a href="#获取你想爬取微博的user-id：" class="headerlink" title="获取你想爬取微博的user_id："></a><strong>获取你想爬取微博的user_id</strong>：</h2>就是你要爬取的微博的主页网址中weibo.com/u/后面的数字部分<img src="http://i.imgur.com/0aANYrF.png" alt=""><h2 id="开始利用python脚本爬取"><a href="#开始利用python脚本爬取" class="headerlink" title="开始利用python脚本爬取"></a>开始利用python脚本爬取</h2>这是python程序的源码：</li>
 </ul>
-<ol>
-<li><strong>获取cookie</strong>：<br>打开chrome然后Ctrl+Shift+I调出开发者工具，点击tooggle device toolbar(Ctrl+shift+M)然后在Responsive选择合适的设备，<img src="http://i.imgur.com/D0MMgUl.png" alt="">我这里选择的是nexus5X，接下来打开weibo.com这时候应该看到的就是手机端网页的微博登录页面。<img src="http://i.imgur.com/xKxzCUN.png" alt="">在开发者工具中选中Network–Preserve log，然后登录微博。在开发者工具中找到有关m.weibo.cn的复制自己的cookie<img src="http://i.imgur.com/EwCHQaS.png" alt=""></li>
-<li><strong>获取你想爬取微博的user_id</strong>：<br>就是你要爬取的微博的主页网址中weibo.com/u/后面的数字部分<img src="http://i.imgur.com/0aANYrF.png" alt=""></li>
-<li>开始利用python脚本爬取<br>这是python程序的源码：</li>
-</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">#-*-coding:utf8-*-</div><div class="line">import re</div><div class="line">import string</div><div class="line">import sys</div><div class="line">import os</div><div class="line">import urllib</div><div class="line">import urllib2</div><div class="line">from bs4 import BeautifulSoup</div><div class="line">import requests</div><div class="line">from lxml import etree</div><div class="line"></div><div class="line">reload(sys) </div><div class="line">sys.setdefaultencoding(&apos;utf-8&apos;)</div><div class="line">if(len(sys.argv)&gt;=2):</div><div class="line">    user_id = (int)(sys.argv[1])</div><div class="line">else:</div><div class="line">    user_id = (int)(raw_input(u&quot;请输入user_id: &quot;))</div><div class="line"></div><div class="line">cookie = &#123;&quot;Cookie&quot;: &quot;#your cookie&quot;&#125;</div><div class="line">url = &apos;http://weibo.cn/u/%d?filter=1&amp;page=1&apos;%user_id</div><div class="line"></div><div class="line">html = requests.get(url, cookies = cookie).content</div><div class="line">selector = etree.HTML(html)</div><div class="line">pageNum = (int)(selector.xpath(&apos;//input[@name=&quot;mp&quot;]&apos;)[0].attrib[&apos;value&apos;])</div><div class="line"></div><div class="line">result = &quot;&quot; </div><div class="line">urllist_set = set()</div><div class="line">word_count = 1</div><div class="line">image_count = 1</div><div class="line">print u&apos;爬虫准备就绪...&apos;</div><div class="line"></div><div class="line">for page in range(1,pageNum+1):</div><div class="line"></div><div class="line">  #获取lxml页面</div><div class="line">  url = &apos;http://weibo.cn/u/%d?filter=1&amp;page=%d&apos;%(user_id,page) </div><div class="line">  lxml = requests.get(url, cookies = cookie).content</div><div class="line"></div><div class="line">  #文字爬取</div><div class="line">  selector = etree.HTML(lxml)</div><div class="line">  content = selector.xpath(&apos;//span[@class=&quot;ctt&quot;]&apos;)</div><div class="line">  for each in content:</div><div class="line">    text = each.xpath(&apos;string(.)&apos;)</div><div class="line">    if word_count&gt;=4:</div><div class="line">      text = &quot;%d :&quot;%(word_count-3) +text+&quot;\n\n&quot;</div><div class="line">    else :</div><div class="line">      text = text+&quot;\n\n&quot;</div><div class="line">    result = result + text</div><div class="line">    word_count += 1</div><div class="line"></div><div class="line">  #图片爬取</div><div class="line">  soup = BeautifulSoup(lxml, &quot;lxml&quot;)</div><div class="line">  urllist = soup.find_all(&apos;a&apos;,href=re.compile(r&apos;^http://weibo.cn/mblog/oripic&apos;,re.I))</div><div class="line">  first = 0</div><div class="line">  for imgurl in urllist:</div><div class="line">    urllist_set.add(requests.get(imgurl[&apos;href&apos;], cookies = cookie).url)</div><div class="line">    image_count +=1</div><div class="line"></div><div class="line">fo = open(&quot;/Users/Personals/%s&quot;%user_id, &quot;wb&quot;)</div><div class="line">fo.write(result)</div><div class="line">word_path=os.getcwd()+&apos;/%d&apos;%user_id</div><div class="line">print u&apos;文字微博爬取完毕&apos;</div><div class="line"></div><div class="line">link = &quot;&quot;</div><div class="line">fo2 = open(&quot;/Users/Personals/%s_imageurls&quot;%user_id, &quot;wb&quot;)</div><div class="line">for eachlink in urllist_set:</div><div class="line">  link = link + eachlink +&quot;\n&quot;</div><div class="line">fo2.write(link)</div><div class="line">print u&apos;图片链接爬取完毕&apos;</div><div class="line"></div><div class="line"></div><div class="line">if not urllist_set:</div><div class="line">  print u&apos;该页面中不存在图片&apos;</div><div class="line">else:</div><div class="line">  #下载图片,保存在当前目录的pythonimg文件夹下</div><div class="line">  image_path=os.getcwd()+&apos;/weibo_image&apos;</div><div class="line">  if os.path.exists(image_path) is False:</div><div class="line">    os.mkdir(image_path)</div><div class="line">  x=1</div><div class="line">  for imgurl in urllist_set:</div><div class="line">    temp= image_path + &apos;/%s.jpg&apos; % x</div><div class="line">    print u&apos;正在下载第%s张图片&apos; % x</div><div class="line">    try:</div><div class="line">      urllib.urlretrieve(urllib2.urlopen(imgurl).geturl(),temp)</div><div class="line">    except:</div><div class="line">      print u&quot;该图片下载失败:%s&quot;%imgurl</div><div class="line">    x+=1</div><div class="line"></div><div class="line">print u&apos;原创微博爬取完毕，共%d条，保存路径%s&apos;%(word_count-4,word_path)</div><div class="line">print u&apos;微博图片爬取完毕，共%d张，保存路径%s&apos;%(image_count-1,image_path)</div></pre></td></tr></table></figure>
 <p>可以将上面的代码保存为wb.py然后在cmd里面运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python wb.py</div></pre></td></tr></table></figure></p>
 <p>大功告成</p>
 <hr>
 <p><strong><em>2016/12/29 星期四 3:16:40 </em></strong></p>
-<p><em>补充：</em><br>python模块的安装可以用easy_install的命令安装 例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">easy_install lxml</div></pre></td></tr></table></figure></p>
+<h2 id="补充："><a href="#补充：" class="headerlink" title="补充："></a><em>补充：</em></h2><p>python模块的安装可以用easy_install的命令安装 例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">easy_install lxml</div></pre></td></tr></table></figure></p>
 <hr>
 <hr>
 <p>python模块pip安装：<a href="http://jingyan.baidu.com/article/e73e26c0d94e0524adb6a7ff.html" target="_blank" rel="external">http://jingyan.baidu.com/article/e73e26c0d94e0524adb6a7ff.html</a><br>用Python写一个简单的微博爬虫: <a href="http://www.jianshu.com/p/7c5a4d7545ca" target="_blank" rel="external">http://www.jianshu.com/p/7c5a4d7545ca</a><br>Microsoft Visual C++ Compiler for Python 2.7:<br><a href="http://www.microsoft.com/en-us/download/details.aspx?id=44266" target="_blank" rel="external">http://www.microsoft.com/en-us/download/details.aspx?id=44266</a></p>
@@ -489,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/ke.png"
@@ -577,6 +591,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取cookie："><span class="nav-number">1.</span> <span class="nav-text">获取cookie：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取你想爬取微博的user-id："><span class="nav-number">2.</span> <span class="nav-text">获取你想爬取微博的user_id：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始利用python脚本爬取"><span class="nav-number">3.</span> <span class="nav-text">开始利用python脚本爬取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充："><span class="nav-number">4.</span> <span class="nav-text">补充：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
