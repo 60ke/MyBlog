@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[VMware安装MacOS]]></title>
       <url>%2F2017%2F01%2F05%2Fmac%2F</url>
-      <content type="text"><![CDATA[准备工作：VMware12OX 10.12 Sierra镜像cdrUnlocker208–VMware上的Mac补丁（bios intelVT开启）工具地址：链接：http://pan.baidu.com/s/1nv0iiZB 密码：f1twVMware Workstation 12序列号: 5A02H-AU243-TZJ49-GTC7K-3C61N 安装过程 安装VMware 安装mac补丁解压unlocker208，右键win-install.cmd以管理员运行，然后等待cmd窗口自己关闭，unlocker208安装完成 安装VMware里面的mac上述工作准备完成后新建虚拟机里面就会多出Apple Mac OS X(M)选项，安转即可 不可恢复错误解决问题解决 mac安转完成打开出现提示不可恢复错误，此时进入虚拟机安装目录用记事本类的编辑器，编辑macOS 10.12.vmx加入以下代码：smc.version = &quot;0&quot;完工]]></content>
+      <content type="text"><![CDATA[准备工作：VMware12OX 10.12 Sierra镜像cdrUnlocker208–VMware上的Mac补丁（bios intelVT开启）工具地址：链接：http://pan.baidu.com/s/1nv0iiZB 密码：f1twVMware Workstation 12序列号: 5A02H-AU243-TZJ49-GTC7K-3C61N 安装过程 安装VMware 安装mac补丁解压unlocker208，右键win-install.cmd以管理员运行，然后等待cmd窗口自己关闭，unlocker208安装完成 安装VMware里面的mac上述工作准备完成后新建虚拟机里面就会多出Apple Mac OS X(M)选项，安转即可 不可恢复错误解决问题解决 mac安转完成打开出现提示不可恢复错误，此时进入虚拟机安装目录用记事本类的编辑器，编辑macOS 10.12.vmx加入以下代码：smc.version = &quot;0&quot;完工补充VMware优化：http://blog.csdn.net/whitehack/article/details/47074403/]]></content>
     </entry>
 
     
